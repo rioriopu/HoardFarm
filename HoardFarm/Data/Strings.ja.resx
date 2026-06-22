@@ -1,4 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+            
+        </xsd:element>
+    </xsd:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -11,31 +18,262 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-    <data name="ConfigWindow_Language" xml:space="preserve">
-        <value>言語:</value>
+    <data name="ConfigWindow_Title" xml:space="preserve">
+    <value>HoardFarm 設定</value>
     </data>
-    <data name="ConfigWindow_Language_de" xml:space="preserve">
-        <value>ドイツ語</value>
+    <data name="ConfigWindow_GreetingText" xml:space="preserve">
+    <value>ここで設定できることは実はあまりありません。</value>
     </data>
-    <data name="ConfigWindow_Language_default" xml:space="preserve">
-        <value>クライアント言語</value>
+    <data name="ConfigWindow_SupportMe" xml:space="preserve">
+    <value>応援してくださると嬉しいです！</value>
     </data>
-    <data name="ConfigWindow_Language_en" xml:space="preserve">
-        <value>英語</value>
+    <data name="ConfigWindow_SupportKofi" xml:space="preserve">
+    <value>ご支援</value>
     </data>
-    <data name="ConfigWindow_Language_fr" xml:space="preserve">
-        <value>フランス語</value>
+    <data name="ConfigWindow_ResetStatistics" xml:space="preserve">
+    <value>ローカル統計をリセット</value>
     </data>
-    <data name="ConfigWindow_Language_ja" xml:space="preserve">
-        <value>日本語</value>
+    <data name="ConfigWindow_OpenHoardfarmOverlay" xml:space="preserve">
+    <value>「Hoardfarmを開く」オーバーレイを表示</value>
     </data>
-    <data name="ConfigWindow_Language_ko" xml:space="preserve">
-        <value>韓国語</value>
+    <data name="ConfigWindow_SlowMode" xml:space="preserve">
+    <value>低速モード</value>
     </data>
-    <data name="ConfigWindow_Language_zh" xml:space="preserve">
-        <value>中国語</value>
+    <data name="ConfigWindow_SlowMode_Help" xml:space="preserve">
+    <value>低速モードでは再登録の前に数秒待機します。
+必須ではありませんが、安心感のための機能です。</value>
+    </data>
+    <data name="DeepDungeonMenuOverlay_OpenHoardfarm" xml:space="preserve">
+    <value>Hoardfarmを開く</value>
     </data>
     <data name="MainWindow_Title" xml:space="preserve">
-        <value>HoardFarm {0}</value>
+    <value>HoardFarm {0}</value>
+    </data>
+    <data name="MainWindow_OpenConfig" xml:space="preserve">
+    <value>設定を開く</value>
+    </data>
+    <data name="MainWindow_OpenHelp" xml:space="preserve">
+    <value>ヘルプを開く</value>
+    </data>
+    <data name="MainWindow_SupportMe" xml:space="preserve">
+    <value>ご支援 ♥</value>
+    </data>
+    <data name="MainWindow_EnableHoardFarmMode" xml:space="preserve">
+    <value>HoardFarm モードを有効化</value>
+    </data>
+    <data name="MainWindow_vnavmeshRequired" xml:space="preserve">
+    <value>この機能を使うには「vnavmesh」のインストールが必要です。</value>
+    </data>
+    <data name="MainWindow_StopAfter" xml:space="preserve">
+    <value>停止条件:</value>
+    </data>
+    <data name="MainWindow_StopAfter_Runs" xml:space="preserve">
+    <value>周回数</value>
+    </data>
+    <data name="MainWindow_StopAfter_Hoards" xml:space="preserve">
+    <value>秘宝発見数</value>
+    </data>
+    <data name="MainWindow_StopAfter_Minutes" xml:space="preserve">
+    <value>分</value>
+    </data>
+    <data name="MainWindow_Savegame" xml:space="preserve">
+    <value>セーブデータ:</value>
+    </data>
+    <data name="MainWindow_Savegame_1" xml:space="preserve">
+    <value>セーブデータ 1</value>
+    </data>
+    <data name="MainWindow_Savegame_2" xml:space="preserve">
+    <value>セーブデータ 2</value>
+    </data>
+    <data name="MainWindow_FarmMode" xml:space="preserve">
+    <value>周回モード:</value>
+    </data>
+    <data name="MainWindow_FarmMode_Efficiency" xml:space="preserve">
+    <value>効率重視</value>
+    </data>
+    <data name="MainWindow_FarmMode_Efficiency_Help" xml:space="preserve">
+    <value>効率重視モードはすべての秘宝を探索して回収しようとします。
+秘宝の20%以上は開始地点から到達できません。
+発見には数秒かかります。
+それでもこのモードを推奨します。</value>
+    </data>
+    <data name="MainWindow_FarmMode_Safety" xml:space="preserve">
+    <value>安全重視</value>
+    </data>
+    <data name="MainWindow_FarmMode_Safety_Help" xml:space="preserve">
+    <value>安全重視モードは秘宝を探索しません。
+秘宝に到達できない場合は即座に離脱します。
+より安全で高速な周回ですが、多くの秘宝を取り逃します。
+全体としては時間がかかります。</value>
+    </data>
+    <data name="MainWindow_Statistics" xml:space="preserve">
+    <value>統計:</value>
+    </data>
+    <data name="MainWindow_Statistics_CurrentSession" xml:space="preserve">
+    <value>現在のセッション</value>
+    </data>
+    <data name="MainWindow_Statistics_Found" xml:space="preserve">
+    <value>発見: {0}   ({1:0.##} %)</value>
+    </data>
+    <data name="MainWindow_Statistics_Runs" xml:space="preserve">
+    <value>周回数: {0}</value>
+    </data>
+    <data name="MainWindow_TimeWithAverage" xml:space="preserve">
+    <value>時間: {0}   (平均 {1})</value>
+    </data>
+    <data name="MainWindow_Time" xml:space="preserve">
+    <value>時間: {0}</value>
+    </data>
+    <data name="MainWindow_Overall" xml:space="preserve">
+    <value>累計:</value>
+    </data>
+    <data name="MainWindow_Progress" xml:space="preserve">
+    <value>進捗: {0} / {1}</value>
+    </data>
+    <data name="MainWindow_ProgressZero" xml:space="preserve">
+    <value>これは相当な時間がかかります。本当に。</value>
+    </data>
+    <data name="MainWindow_ProgressNoTime" xml:space="preserve">
+    <value>苦行モード。残り時間を計算できません。</value>
+    </data>
+    <data name="MainWindow_RemainingTime" xml:space="preserve">
+    <value>アチーブメント達成には少なくとも {0} の周回が必要です。</value>
+    </data>
+    <data name="MainWindow_RemainingTimeDays" xml:space="preserve">
+    <value>アチーブメント達成には少なくとも {0} 日と {1} の周回が必要です。</value>
+    </data>
+    <data name="MainWindow_UnableToRun" xml:space="preserve">
+    <value>実行できません:</value>
+    </data>
+    <data name="MainWindow_DoRetainers" xml:space="preserve">
+    <value>リテイナーを実行:</value>
+    </data>
+    <data name="MainWindow_DoRetainers_Port" xml:space="preserve">
+    <value>周回の合間にリムサ・ロミンサへ移動し、条件を満たすとリテイナーを実行します。</value>
+    </data>
+    <data name="MainWindow_DoRetainers_WrongWorld" xml:space="preserve">
+    <value>現在のワールド名またはインベントリ枠を確認してください。</value>
+    </data>
+    <data name="MainWindow_DoRetainers_AutoretainerNeeded" xml:space="preserve">
+    <value>この機能を使うには AutoRetainer のインストールと設定が必要です。</value>
+    </data>
+    <data name="MainWindow_DoRetainers_AnyDone" xml:space="preserve">
+    <value>いずれかのリテイナーが完了したら</value>
+    </data>
+    <data name="MainWindow_DoRetainers_AllDone" xml:space="preserve">
+    <value>すべてのリテイナーが完了したら</value>
+    </data>
+    <data name="HoardFarm_CommandHelp" xml:space="preserve">
+    <value>Hoard Farm ウィンドウを開きます。
+/hoardfarm config | c → 設定ウィンドウを開く。
+/hoardfarm enable | e → 周回モードを有効化。
+/hoardfarm disable | d → 周回モードを無効化。
+/hoardfarm toggle | t → 周回モードを切り替え。
+</value>
+    </data>
+    <data name="HoardFarm_Status_Running" xml:space="preserve">
+    <value>実行中</value>
+    </data>
+    <data name="HoardFarm_Status_Searching" xml:space="preserve">
+    <value>探索中</value>
+    </data>
+    <data name="HoardFarm_Status_Unreachable" xml:space="preserve">
+    <value>到達不可</value>
+    </data>
+    <data name="HoardFarm_Status_SearchingObject" xml:space="preserve">
+    <value>探索中 {0}</value>
+    </data>
+    <data name="HoardFarm_Status_RetainerRunning" xml:space="preserve">
+    <value>リテイナー実行中</value>
+    </data>
+    <data name="HoardFarm_Status_WaitingNavmesh" xml:space="preserve">
+    <value>vnavmesh を待機中</value>
+    </data>
+    <data name="HoardFarm_Status_Error" xml:space="preserve">
+    <value>エラー</value>
+    </data>
+    <data name="HoardFarm_Status_Error_Unprepared" xml:space="preserve">
+    <value>開始前に準備してください。
+1層には対応していません。</value>
+    </data>
+    <data name="HoardFarm_Status_MoveToHoH" xml:space="preserve">
+    <value>アメノミハシラへ移動中</value>
+    </data>
+    <data name="HoardFarm_Status_Finished" xml:space="preserve">
+    <value>完了</value>
+    </data>
+    <data name="HoardFarm_Status_EnteringHoH" xml:space="preserve">
+    <value>アメノミハシラへ入場中</value>
+    </data>
+    <data name="HoardFarm_Status_Error_MinimalSetup" xml:space="preserve">
+    <value>開始前に準備してください。
+直感の魔石を1つ以上、
+隠遁の魔石を1つ以上必要とします。</value>
+    </data>
+    <data name="HoardFarm_Status_MoveToHoard" xml:space="preserve">
+    <value>秘宝へ移動中</value>
+    </data>
+    <data name="HoardFarm_Status_Timeout" xml:space="preserve">
+    <value>タイムアウト</value>
+    </data>
+    <data name="HoardFarm_Status_PlayerDied" xml:space="preserve">
+    <value>プレイヤーが戦闘不能</value>
+    </data>
+    <data name="HoardFarm_Status_Waiting" xml:space="preserve">
+    <value>待機中</value>
+    </data>
+    <data name="HoardFarm_Status_HoardFound" xml:space="preserve">
+    <value>秘宝発見</value>
+    </data>
+    <data name="HoardFarm_Status_NoHoard" xml:space="preserve">
+    <value>秘宝なし</value>
+    </data>
+    <data name="HoardFarm_Status_Done" xml:space="preserve">
+    <value>完了</value>
+    </data>
+    <data name="HoardFarm_Status_Leaving" xml:space="preserve">
+    <value>離脱中</value>
+    </data>
+    <data name="ConfigWindow_WaitBetween" xml:space="preserve">
+    <value>待機時間:</value>
+    </data>
+    <data name="ConfigWindow_Seconds" xml:space="preserve">
+    <value>%d 秒</value>
+    </data>
+    <data name="ConfigWindow_And" xml:space="preserve">
+    <value>〜</value>
+    </data>
+    <data name="ConfigWindow_Language" xml:space="preserve">
+    <value>言語:</value>
+    </data>
+    <data name="ConfigWindow_Language_de" xml:space="preserve">
+    <value>ドイツ語</value>
+    </data>
+    <data name="ConfigWindow_Language_default" xml:space="preserve">
+    <value>クライアント言語</value>
+    </data>
+    <data name="ConfigWindow_Language_en" xml:space="preserve">
+    <value>英語</value>
+    </data>
+    <data name="ConfigWindow_Language_fr" xml:space="preserve">
+    <value>フランス語</value>
+    </data>
+    <data name="ConfigWindow_Language_ja" xml:space="preserve">
+    <value>日本語</value>
+    </data>
+    <data name="ConfigWindow_Language_ko" xml:space="preserve">
+    <value>韓国語</value>
+    </data>
+    <data name="ConfigWindow_Language_zh" xml:space="preserve">
+    <value>中国語</value>
+    </data>
+    <data name="ConfigWindow_DisableStatisticGathering" xml:space="preserve">
+    <value>統計収集を無効化</value>
+    </data>
+    <data name="ConfigWindow_DisableStatisticGathering_Help" xml:space="preserve">
+    <value>周回時間と発見した秘宝のグローバル統計収集を無効化します。
+正確なグローバル統計を作成するためだけに使用されます。
+秘宝を発見した場合の周回時間と秘宝までの移動時間のみを送信します。
+キャラクター名・タイムスタンプ・その他の識別情報は一切送信されません！</value>
     </data>
 </root>

@@ -23,7 +23,7 @@ public class ConfigWindow() : Window(Strings.ConfigWindow_Title, ImGuiWindowFlag
         if (ImGui.Button(Strings.ConfigWindow_SupportKofi))
             Process.Start(new ProcessStartInfo
             {
-                FileName = "https://ko-fi.com/jukkales",
+                FileName = "https://www.patreon.com/cw/SuppotToEstell",
                 UseShellExecute = true
             });
 

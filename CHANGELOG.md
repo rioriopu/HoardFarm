@@ -2,6 +2,11 @@
 
 I try to keep this changelog up to date with the latest changes in the project.
 
+## [1.6.0.4]
+- UI を全面的に日本語化（`Strings.ja.resx` を全 80 キー翻訳）
+- 支援リンクを Ko-fi から Patreon に変更（https://www.patreon.com/cw/SuppotToEstell）
+- 支援ボタンのテキストを「ご支援」に変更
+
 ## [1.6.0.3]
 - Dalamud API 15 / Dalamud 15.x（net10.0）対応の再ビルド（rioriopu フォーク）
 - AutoRetainerAPI を最新版に追従（ECommons 3.2.0.11）

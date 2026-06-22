@@ -78,7 +78,7 @@ public class MainWindow : Window
                 {
                     Process.Start(new ProcessStartInfo
                     {
-                        FileName = "https://ko-fi.com/jukkales",
+                        FileName = "https://www.patreon.com/cw/SuppotToEstell",
                         UseShellExecute = true
                     });
                 }
