@@ -9,6 +9,7 @@ using Dalamud.Game.Chat;
 using Dalamud.Game.ClientState.Conditions;
 using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
+using Dalamud.Game.Text.SeStringHandling.Payloads;
 using Dalamud.Plugin.Services;
 using Dalamud.Utility;
 using ECommons.DalamudServices;
@@ -62,9 +63,13 @@ public class HoardFarmService : IDisposable
 
     public HoardFarmService()
     {
-        hoardFoundMessage = DataManager.GetExcelSheet<LogMessage>().GetRow(7274).Text.ToDalamudString().GetText();
-        senseHoardMessage = DataManager.GetExcelSheet<LogMessage>().GetRow(7272).Text.ToDalamudString().GetText();
-        noHoardMessage = DataManager.GetExcelSheet<LogMessage>().GetRow(7273).Text.ToDalamudString().GetText();
+        // LogMessage はフロア名などのプレースホルダー（マクロ）を含むため、
+        // GetText() で結合した全文ではなく「最長のテキストセグメント」を抽出して
+        // 部分一致で判定する。これによりプレースホルダーが埋め込まれた実際の
+        // チャットメッセージとも言語非依存で照合できる。
+        hoardFoundMessage = LongestTextSegment(DataManager.GetExcelSheet<LogMessage>().GetRow(7274).Text.ToDalamudString());
+        senseHoardMessage = LongestTextSegment(DataManager.GetExcelSheet<LogMessage>().GetRow(7272).Text.ToDalamudString());
+        noHoardMessage = LongestTextSegment(DataManager.GetExcelSheet<LogMessage>().GetRow(7273).Text.ToDalamudString());
 
         ClientState.TerritoryChanged += OnMapChange;
 
@@ -438,17 +443,31 @@ public class HoardFarmService : IDisposable
         }
     }
 
+    // LogMessage（プレースホルダーを含む）から、判定に使える最長の
+    // テキストセグメントを取り出す。マクロ（フロア名など）部分は除外される。
+    private static string LongestTextSegment(SeString seString)
+    {
+        return seString.Payloads
+                       .OfType<TextPayload>()
+                       .Select(p => p.Text ?? "")
+                       .OrderByDescending(s => s.Length)
+                       .FirstOrDefault() ?? "";
+    }
+
     private void OnChatMessage(IHandleableChatMessage chatMessage)
     {
-        var message = chatMessage.Message;
-        if (senseHoardMessage.Equals(message.TextValue))
+        var text = chatMessage.Message.TextValue;
+
+        // プレースホルダー（フロア名など）が埋め込まれた実メッセージと照合するため、
+        // 完全一致ではなく最長テキストセグメントの部分一致で判定する。
+        if (senseHoardMessage.Length > 0 && text.Contains(senseHoardMessage))
         {
             intuitionUsed = true;
             hoardAvailable = true;
             HoardModeStatus = Strings.HoardFarm_Status_HoardFound;
         }
 
-        if (noHoardMessage.Equals(message.TextValue))
+        if (noHoardMessage.Length > 0 && text.Contains(noHoardMessage))
         {
             intuitionUsed = true;
             hoardAvailable = false;
@@ -456,7 +475,7 @@ public class HoardFarmService : IDisposable
             LeaveDuty(Strings.HoardFarm_Status_NoHoard);
         }
 
-        if (hoardFoundMessage.Equals(message.TextValue))
+        if (hoardFoundMessage.Length > 0 && text.Contains(hoardFoundMessage))
         {
             hoardFound = true;
             movementEnd = DateTime.Now;

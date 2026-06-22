@@ -2,6 +2,11 @@
 
 I try to keep this changelog up to date with the latest changes in the project.
 
+## [1.6.0.5]
+- 秘宝を発見してもしなくても即座に退出してしまう不具合を修正
+  - LogMessage（7272/7273/7274）にはフロア名などのプレースホルダー（マクロ）が含まれており、`GetText()` で結合した全文が実際のチャットメッセージと完全一致しないため、「秘宝の気配」検知が常に失敗して `hoardAvailable` が false のままになっていた
+  - 完全一致ではなく、各メッセージの最長テキストセグメントによる部分一致判定に変更（プレースホルダーを含まないため言語非依存・英/日/独/仏で区別性を検証済み）
+
 ## [1.6.0.4]
 - UI を全面的に日本語化（`Strings.ja.resx` を全 80 キー翻訳）
 - 支援リンクを Ko-fi から Patreon に変更（https://www.patreon.com/cw/SuppotToEstell）
