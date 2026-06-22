@@ -1,4 +1,8 @@
-[![Build](https://github.com/Jukkales/HoardFarm/actions/workflows/build-plugin.yml/badge.svg)](https://github.com/Jukkales/HoardFarm/actions/workflows/build-plugin.yml)
+> **Note:** これは [Jukkales/HoardFarm](https://github.com/Jukkales/HoardFarm) の rioriopu によるフォークです。
+> 現在の Dalamud（API 15 / Dalamud 15.x・net10.0）に対応するよう更新し、最新の AutoRetainerAPI に追従させています。
+> 配布は [PrivateReleaseRepo](https://github.com/rioriopu/PrivateReleaseRepo) 経由で行われます。
+
+[![Build](https://github.com/rioriopu/HoardFarm/actions/workflows/build-plugin.yml/badge.svg)](https://github.com/rioriopu/HoardFarm/actions/workflows/build-plugin.yml)
 [![Github Downloads (total)](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fpuni.sh%2Fapi%2Frepository%2Fjukka&query=%24%5B1%5D.DownloadCount&label=Downloads&color=4DC71F
 )]()
 [![Last Version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fpuni.sh%2Fapi%2Frepository%2Fjukka&query=%24%5B1%5D.AssemblyVersion&label=release

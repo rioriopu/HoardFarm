@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using Dalamud.Game.Chat;
 using Dalamud.Game.ClientState.Conditions;
 using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
@@ -427,19 +428,19 @@ public class HoardFarmService : IDisposable
         }
     }
 
-    private void OnMapChange(ushort territoryType)
+    private void OnMapChange(uint territoryType)
     {
         if (territoryType is HoHMapId11 or HoHMapId21)
         {
             Reset();
             HoardModeStatus = Strings.HoardFarm_Status_Waiting;
-            currentTerritoryType = territoryType;
+            currentTerritoryType = (ushort)territoryType;
         }
     }
 
-    private void OnChatMessage(
-        XivChatType type, int timestamp, ref SeString sender, ref SeString message, ref bool isHandled)
+    private void OnChatMessage(IHandleableChatMessage chatMessage)
     {
+        var message = chatMessage.Message;
         if (senseHoardMessage.Equals(message.TextValue))
         {
             intuitionUsed = true;

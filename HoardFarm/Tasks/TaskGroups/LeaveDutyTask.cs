@@ -8,7 +8,7 @@ using FFXIVClientStructs.FFXIV.Client.Game.Object;
 using FFXIVClientStructs.FFXIV.Client.UI.Agent;
 using FFXIVClientStructs.FFXIV.Component.GUI;
 using HoardFarm.Tasks.Base;
-using ValueType = FFXIVClientStructs.FFXIV.Component.GUI.ValueType;
+using ValueType = FFXIVClientStructs.FFXIV.Component.GUI.AtkValueType;
 #pragma warning disable CS8974 // Converting method group to non-delegate type
 
 namespace HoardFarm.Tasks.TaskGroups;

@@ -2,6 +2,14 @@
 
 I try to keep this changelog up to date with the latest changes in the project.
 
+## [1.6.0.3]
+- Dalamud API 15 / Dalamud 15.x（net10.0）対応の再ビルド（rioriopu フォーク）
+- AutoRetainerAPI を最新版に追従（ECommons 3.2.0.11）
+- API 変更への追従:
+  - `IClientState.TerritoryChanged` の引数が `ushort` から `uint` に変更
+  - `IChatGui.ChatMessage` が `IHandleableChatMessage` ベースの新デリゲートに変更
+  - `FFXIVClientStructs` の `ValueType` を `AtkValueType` に更新
+
 ## [1.5.2.6]
 - Use default Dalamud title bar buttons by @carvelli
 - Retainer home world check by @decorwdyun
