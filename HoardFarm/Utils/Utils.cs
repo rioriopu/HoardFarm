@@ -123,9 +123,14 @@ public static class Utils
     public static unsafe bool KyuseiInteractable()
     {
         if (ObjectTable.TryGetFirst(e => e.BaseId == KyuseiDataId, out var npc))
+        {
             // 「話しかけられる距離」かどうかの判定（純粋な距離のみ。遮蔽物＝視線は
             // インタラクト側の checkLineOfSight=false で無視されるため、ここでは考慮しない）。
-            return npc.Position.Distance(Player.Position) < 7f;
+            // 距離無制限モードでは HoH 離脱後の配置位置がやや離れるため、しきい値を広くとる。
+            var maxDistance = Config.UnlimitedInteractDistance ? 15f : 7f;
+            return npc.Position.Distance(Player.Position) < maxDistance;
+        }
+
         return false;
     }
 
