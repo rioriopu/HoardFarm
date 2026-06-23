@@ -46,4 +46,5 @@ public class PluginService
     public static AchievementService Achievements { get; set; } = null!;
     public static AutoRetainerApi RetainerApi { get; set; } = null!;
     public static RetainerService RetainerScv { get; set; } = null!;
+    public static InteractDistanceService InteractDistance { get; set; } = null!;
 }

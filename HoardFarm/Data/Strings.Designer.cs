@@ -88,7 +88,25 @@ namespace HoardFarm.Data {
                 return ResourceManager.GetString("ConfigWindow_DisableStatisticGathering_Help", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to Unlimited interaction distance.
+        /// </summary>
+        internal static string ConfigWindow_UnlimitedInteract {
+            get {
+                return ResourceManager.GetString("ConfigWindow_UnlimitedInteract", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to the help text for unlimited interaction distance.
+        /// </summary>
+        internal static string ConfigWindow_UnlimitedInteract_Help {
+            get {
+                return ResourceManager.GetString("ConfigWindow_UnlimitedInteract_Help", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Actually no really much to configure here..
         /// </summary>

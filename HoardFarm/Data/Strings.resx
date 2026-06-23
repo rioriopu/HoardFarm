@@ -33,6 +33,14 @@
     <data name="ConfigWindow_ResetStatistics" xml:space="preserve">
         <value>Reset local statistics</value>
     </data>
+    <data name="ConfigWindow_UnlimitedInteract" xml:space="preserve">
+        <value>Unlimited interaction distance</value>
+    </data>
+    <data name="ConfigWindow_UnlimitedInteract_Help" xml:space="preserve">
+        <value>Removes the distance/view/height checks when interacting with objects (e.g. hoards), allowing interaction from any distance.
+This is a global game hook and affects all interactions while enabled.
+Disable it if you experience any issues after a game update.</value>
+    </data>
     <data name="ConfigWindow_OpenHoardfarmOverlay" xml:space="preserve">
         <value>Show "Open Hoardfarm"-Overlay</value>
     </data>

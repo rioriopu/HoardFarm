@@ -29,6 +29,8 @@ public class Configuration : IPluginConfiguration
     
     public bool DisableStatisticCollection = false;
 
+    public bool UnlimitedInteractDistance = false;
+
     public void Save()
     {
         PluginInterface.SavePluginConfig(this);

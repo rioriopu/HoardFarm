@@ -26,6 +26,7 @@ public sealed class HoardFarm : IDalamudPlugin
     private readonly DeepDungeonMenuOverlay deepDungeonMenuOverlay;
 
     private readonly HoardFarmService hoardFarmService;
+    private readonly InteractDistanceService interactDistanceService;
     private readonly MainWindow mainWindow;
     private readonly RetainerService retainerService;
     public readonly WindowSystem WindowSystem = new("HoardFarm");
@@ -69,6 +70,9 @@ public sealed class HoardFarm : IDalamudPlugin
         retainerService = new RetainerService();
         RetainerScv = retainerService;
 
+        interactDistanceService = new InteractDistanceService();
+        InteractDistance = interactDistanceService;
+
         PluginInterface.UiBuilder.Draw += DrawUI;
         PluginInterface.UiBuilder.OpenMainUi += () => OnCommand();
         PluginInterface.UiBuilder.OpenConfigUi += ShowConfigWindow;
@@ -102,6 +106,7 @@ public sealed class HoardFarm : IDalamudPlugin
 
         autoRetainerApi.Dispose();
         retainerService.Dispose();
+        interactDistanceService.Dispose();
 
         Framework.Update -= FrameworkUpdate;
         ECommonsMain.Dispose();

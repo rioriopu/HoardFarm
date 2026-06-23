@@ -28,9 +28,19 @@ public class ConfigWindow() : Window(Strings.ConfigWindow_Title, ImGuiWindowFlag
             });
 
         ImGui.PopStyleColor(3);
-        if (ImGui.Button("Want to help with localization?"))
-            Process.Start(new ProcessStartInfo
-                              { FileName = "https://crowdin.com/project/hoardfarm", UseShellExecute = true });
+        if (ImGui.Checkbox(Strings.ConfigWindow_UnlimitedInteract, ref Config.UnlimitedInteractDistance))
+        {
+            InteractDistance.SetEnabled(Config.UnlimitedInteractDistance);
+            Config.Save();
+        }
+        ImGui.SameLine();
+        ImGui.PushFont(UiBuilder.IconFont);
+        ImGui.Text(FontAwesomeIcon.QuestionCircle.ToIconString());
+        ImGui.PopFont();
+        if (ImGui.IsItemHovered())
+        {
+            ImGui.SetTooltip(Strings.ConfigWindow_UnlimitedInteract_Help);
+        }
         ImGui.Spacing();
         ImGui.Separator();
         if (ImGui.Button(Strings.ConfigWindow_ResetStatistics))

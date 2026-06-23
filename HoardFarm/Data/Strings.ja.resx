@@ -33,6 +33,14 @@
     <data name="ConfigWindow_ResetStatistics" xml:space="preserve">
     <value>ローカル統計をリセット</value>
     </data>
+    <data name="ConfigWindow_UnlimitedInteract" xml:space="preserve">
+    <value>インタラクト距離を無制限にする</value>
+    </data>
+    <data name="ConfigWindow_UnlimitedInteract_Help" xml:space="preserve">
+    <value>オブジェクト（秘宝など）へのインタラクト時の距離・視界・高低差の判定を無効化し、どの距離からでもインタラクトできるようにします。
+これはゲーム全体に作用するフックで、有効中はすべてのインタラクトに影響します。
+ゲーム更新後に不具合が出た場合は無効にしてください。</value>
+    </data>
     <data name="ConfigWindow_OpenHoardfarmOverlay" xml:space="preserve">
     <value>「Hoardfarmを開く」オーバーレイを表示</value>
     </data>
