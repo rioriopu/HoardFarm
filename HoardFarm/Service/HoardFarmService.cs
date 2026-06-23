@@ -227,10 +227,13 @@ public class HoardFarmService : IDisposable
 
             if (Config.UnlimitedInteractDistance)
             {
-                // 手動キュウセイモード:
-                // 距離無制限が有効なときは、ボットが自動でキュウセイへ移動・話しかけることはせず、
-                // ユーザーが手動でキュウセイに話しかけてディープダンジョンのメニューを開いた状態から続行する。
-                // メニューが開いていれば EnterHeavenOnHigh は InteractObjectTask を自動的にスキップする。
+                // 距離無制限モード（手動キュウセイ起点 + 自動ループ）:
+                // ボットは自動でキュウセイへ「移動」はしない（テレポート・経路探索なし）。
+                // ただしキュウセイがインタラクト可能（オブジェクトテーブルに存在）なら、
+                // EnterHeavenOnHigh が遠隔インタラクトして入場・周回を自動でループする。
+                // ユーザーが手動でメニューを開いた場合は InteractObjectTask は自動スキップされる。
+                // 隠れた場所などキュウセイが読み込まれていない位置では、手動で話しかけて
+                // メニューを開けば続行する（その後 HoH 離脱時はキュウセイ付近に配置され自動ループ）。
                 if (!InHoH && NotBusy())
                 {
                     if (FinishRun)
@@ -240,7 +243,7 @@ public class HoardFarmService : IDisposable
                         return;
                     }
 
-                    if (DeepDungeonMenuOpen())
+                    if (DeepDungeonMenuOpen() || KyuseiInteractable())
                     {
                         if (CheckRetainer())
                         {
