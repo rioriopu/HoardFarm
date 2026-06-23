@@ -123,9 +123,9 @@ public static class Utils
     public static unsafe bool KyuseiInteractable()
     {
         if (ObjectTable.TryGetFirst(e => e.BaseId == KyuseiDataId, out var npc))
-            // インタラクト距離無制限が有効なら、キュウセイがオブジェクトテーブルに
-            // 存在する（スポーン済み）だけで遠隔ターゲット・インタラクト可能とみなす。
-            return Config.UnlimitedInteractDistance || npc.Position.Distance(Player.Position) < 7f;
+            // 「話しかけられる距離」かどうかの判定（純粋な距離のみ。遮蔽物＝視線は
+            // インタラクト側の checkLineOfSight=false で無視されるため、ここでは考慮しない）。
+            return npc.Position.Distance(Player.Position) < 7f;
         return false;
     }
 

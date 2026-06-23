@@ -38,7 +38,7 @@
     </data>
     <data name="ConfigWindow_UnlimitedInteract_Help" xml:space="preserve">
         <value>Removes the distance/view/height checks when interacting with objects (e.g. hoards), allowing interaction from any distance.
-While enabled, the bot will NOT move to Kyusei automatically (no teleport/movement). It loops by you talking to Kyusei from a hidden spot where you can interact.
+While enabled, the bot will NOT move to Kyusei automatically (no teleport/movement). Talk to Kyusei manually once to start; after that it loops automatically as long as you stay within talking distance of Kyusei, even behind cover (stops if you move away).
 This is a global game hook and affects all interactions while enabled.
 Disable it if you experience any issues after a game update.</value>
     </data>

@@ -35,6 +35,10 @@ public class HoardFarmService : IDisposable
     public bool FinishRun;
     private bool hoardAvailable;
 
+    // 距離無制限モード: 最初の1回はユーザーが手動でキュウセイに話しかけて
+    // メニューを開く必要がある。一度起動したら以降は自動でループする。
+    private bool kyuseiLoopStarted;
+
     private bool hoardFound;
     private bool hoardModeActive;
     public string HoardModeError = "";
@@ -114,6 +118,9 @@ public class HoardFarmService : IDisposable
         SessionTime = 0;
         SessionRuns = 0;
         SessionFoundHoards = 0;
+        // 距離無制限モードでは、ファーム開始ごとに最初の1回は手動で
+        // キュウセイに話しかけてもらう。
+        kyuseiLoopStarted = false;
         running = true;
         HoardModeStatus = Strings.HoardFarm_Status_Running;
         HoardModeError = "";
@@ -227,13 +234,13 @@ public class HoardFarmService : IDisposable
 
             if (Config.UnlimitedInteractDistance)
             {
-                // 距離無制限モード（手動キュウセイ起点 + 自動ループ）:
+                // 距離無制限モード（手動起点 + 距離内なら自動ループ）:
                 // ボットは自動でキュウセイへ「移動」はしない（テレポート・経路探索なし）。
-                // ただしキュウセイがインタラクト可能（オブジェクトテーブルに存在）なら、
-                // EnterHeavenOnHigh が遠隔インタラクトして入場・周回を自動でループする。
-                // ユーザーが手動でメニューを開いた場合は InteractObjectTask は自動スキップされる。
-                // 隠れた場所などキュウセイが読み込まれていない位置では、手動で話しかけて
-                // メニューを開けば続行する（その後 HoH 離脱時はキュウセイ付近に配置され自動ループ）。
+                // ・最初の1回はユーザーが手動でキュウセイに話しかけてメニューを開く必要がある。
+                //   （メニューが開いていれば EnterHeavenOnHigh は InteractObjectTask を自動スキップ）
+                // ・一度起動したら、以降はキュウセイに話しかけられる距離（<7y）にいれば
+                //   遮蔽物があっても（checkLineOfSight=false のため）自動でインタラクトしてループする。
+                // ・話しかけられる距離から離れると待機に戻る（位置で開始/停止を制御できる）。
                 if (!InHoH && NotBusy())
                 {
                     if (FinishRun)
@@ -243,8 +250,12 @@ public class HoardFarmService : IDisposable
                         return;
                     }
 
-                    if (DeepDungeonMenuOpen() || KyuseiInteractable())
+                    var menuOpen = DeepDungeonMenuOpen();
+                    if (menuOpen || (kyuseiLoopStarted && KyuseiInteractable()))
                     {
+                        // 手動でメニューを開いた時点で「起動済み」とし、以降は自動ループへ。
+                        kyuseiLoopStarted = true;
+
                         if (CheckRetainer())
                         {
                             // Do retainers first
