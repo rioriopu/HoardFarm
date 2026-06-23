@@ -2,6 +2,12 @@
 
 I try to keep this changelog up to date with the latest changes in the project.
 
+## [1.6.0.8]
+- ログイン前・ゾーン遷移中・ロード中などに UI 描画でクラッシュする不具合を修正
+  - `Player.Territory.Value.RowId` が、territory が無効（0 など）のとき Lumina の
+    `RowRef.Value` で `InvalidOperationException` をスローしていた
+  - 行を解決しない `Player.Territory.RowId` に変更（InHoH / InRubySea / テレポート判定など全箇所）
+
 ## [1.6.0.7]
 - Dalamud 15.0.2.1 / FFXIVClientStructs 7.51 追従の再ビルド（挙動変更なし）
 

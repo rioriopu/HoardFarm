@@ -215,7 +215,7 @@ public class HoardFarmService : IDisposable
                 return;
             }
 
-            if (Player.Territory.Value.RowId == HoHMapId1)
+            if (Player.Territory.RowId == HoHMapId1)
             {
                 Error(Strings.HoardFarm_Status_Error_Unprepared);
                 return;

@@ -98,7 +98,7 @@ public class RetainerService : IDisposable
 
         if (!TaskManager.IsBusy && Running && !AutoRetainerRunning())
         {
-            if (Player.Territory.Value.RowId != LimsaMapId)
+            if (Player.Territory.RowId != LimsaMapId)
             {
                 Enqueue(new TeleportTask(LimsaAetherytId, LimsaMapId), "Teleport to Limsa");
                 return;
