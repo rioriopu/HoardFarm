@@ -2,6 +2,9 @@
 
 I try to keep this changelog up to date with the latest changes in the project.
 
+## [1.6.0.7]
+- Dalamud 15.0.2.1 / FFXIVClientStructs 7.51 追従の再ビルド（挙動変更なし）
+
 ## [1.6.0.6]
 - 「インタラクト距離を無制限にする」機能を追加（設定画面のチェックボックスで切り替え）
   - DailyRoutines の OptimizedInteraction モジュールの距離/視界/高低/カメラ位置判定の無効化フックを移植
