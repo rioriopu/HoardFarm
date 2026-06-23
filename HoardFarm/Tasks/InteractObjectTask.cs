@@ -13,7 +13,10 @@ public class InteractObjectTask(uint dataId) : BaseTask()
         {
             if (TargetSystem.Instance()->Target == (GameObject*)obj.Address)
             {
-                TargetSystem.Instance()->InteractWithObject((GameObject*)obj.Address);
+                // 距離無制限が有効なときは視線判定（checkLineOfSight）も無効化して
+                // 遠隔からでもインタラクトできるようにする。
+                TargetSystem.Instance()->InteractWithObject((GameObject*)obj.Address,
+                                                            !Config.UnlimitedInteractDistance);
                 return true;
             }
 

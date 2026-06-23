@@ -2,6 +2,14 @@
 
 I try to keep this changelog up to date with the latest changes in the project.
 
+## [1.6.0.10]
+- `GatherData()` で「Nullable object must have a value」例外が連発する不具合を修正
+  - HoH 未入場で `currentTerritoryType` が null のときに `.Value` を参照していた
+  - `currentTerritoryType.HasValue` のガードを追加（無効時は統計収集をスキップ）
+  - これにより OnTick がブロックされず、キュウセイへのインタラクト再試行が継続するようになる
+- 距離無制限時、`InteractObjectTask` で視線判定（checkLineOfSight）も無効化し、遠隔インタラクトの成功率を改善
+  - 自動で開けない場合も、手動でキュウセイに近づく/話しかければメニューを検出して続行する（約10秒ごとに再試行）
+
 ## [1.6.0.9]
 - 「インタラクト距離を無制限にする」が有効なとき、NPC「キュウセイ」へ歩かず遠隔でインタラクトするように改善
   - `MoveToHoHTask`: 距離無制限時はオノコロへテレポートするだけ（マウント・経路探索を省略）。テレポート後はキュウセイがスポーン範囲内に居るため遠隔ターゲット・インタラクト可能

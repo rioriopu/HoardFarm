@@ -494,13 +494,17 @@ public class HoardFarmService : IDisposable
 
     private void GatherData()
     {
-        if (timingStart != null)
+        // currentTerritoryType は HoH に入場したときのみ設定される。
+        // 距離無制限などでルビーシーから HoH へ未入場のままこのメソッドが
+        // 呼ばれると null となり、currentTerritoryType!.Value で
+        // 「Nullable object must have a value」例外が発生していたためガードする。
+        if (timingStart != null && currentTerritoryType.HasValue)
         {
             var data = new CollectedData
             {
                 Sender = Config.UniqueId!,
                 Runtime = (DateTime.Now - timingStart.Value).TotalMilliseconds,
-                TerritoryTyp = currentTerritoryType!.Value,
+                TerritoryTyp = currentTerritoryType.Value,
                 SafetyMode = Config.HoardFarmMode == 1
             };
 
