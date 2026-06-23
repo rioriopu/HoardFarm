@@ -191,7 +191,11 @@ public class HoardFarmService : IDisposable
         SessionTime++;
         Config.OverallTime++;
 
-        if (!NavmeshIPC.NavIsReady())
+        // navmesh（vnavmesh）は経路探索にのみ必要。
+        // インタラクト距離無制限が有効な場合、ルビーシー側ではキュウセイへ
+        // 歩かず遠隔インタラクトするため navmesh の構築完了を待つ必要がない。
+        // ホード探索を行う天獄篇（HoH）内では引き続き navmesh を必須とする。
+        if (!NavmeshIPC.NavIsReady() && (InHoH || !Config.UnlimitedInteractDistance))
         {
             HoardModeStatus = Strings.HoardFarm_Status_WaitingNavmesh;
             return;

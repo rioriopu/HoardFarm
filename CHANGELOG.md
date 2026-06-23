@@ -2,6 +2,12 @@
 
 I try to keep this changelog up to date with the latest changes in the project.
 
+## [1.6.0.9]
+- 「インタラクト距離を無制限にする」が有効なとき、NPC「キュウセイ」へ歩かず遠隔でインタラクトするように改善
+  - `MoveToHoHTask`: 距離無制限時はオノコロへテレポートするだけ（マウント・経路探索を省略）。テレポート後はキュウセイがスポーン範囲内に居るため遠隔ターゲット・インタラクト可能
+  - `KyuseiInteractable()`: 距離無制限時はキュウセイがオブジェクトテーブルに存在すれば true（距離判定をスキップ）
+  - navmesh（vnavmesh）待ちの解消: navmesh は経路探索にのみ必要なため、距離無制限かつ HoH 外（ルビーシー側）では構築完了を待たずに進行するよう変更（HoH 内のホード探索では引き続き navmesh を必須）
+
 ## [1.6.0.8]
 - ログイン前・ゾーン遷移中・ロード中などに UI 描画でクラッシュする不具合を修正
   - `Player.Territory.Value.RowId` が、territory が無効（0 など）のとき Lumina の
