@@ -225,34 +225,73 @@ public class HoardFarmService : IDisposable
                 return;
             }
 
-            if (!InHoH && !InRubySea && NotBusy() && !KyuseiInteractable())
+            if (Config.UnlimitedInteractDistance)
             {
-                HoardModeStatus = Strings.HoardFarm_Status_MoveToHoH;
-                Enqueue(new MoveToHoHTask());
-                EnqueueWait(1000);
+                // 手動キュウセイモード:
+                // 距離無制限が有効なときは、ボットが自動でキュウセイへ移動・話しかけることはせず、
+                // ユーザーが手動でキュウセイに話しかけてディープダンジョンのメニューを開いた状態から続行する。
+                // メニューが開いていれば EnterHeavenOnHigh は InteractObjectTask を自動的にスキップする。
+                if (!InHoH && NotBusy())
+                {
+                    if (FinishRun)
+                    {
+                        HoardModeStatus = Strings.HoardFarm_Status_Finished;
+                        HoardMode = false;
+                        return;
+                    }
+
+                    if (DeepDungeonMenuOpen())
+                    {
+                        if (CheckRetainer())
+                        {
+                            // Do retainers first
+                            return;
+                        }
+
+                        GatherData();
+                        timingStart = DateTime.Now;
+                        HoardModeStatus = Strings.HoardFarm_Status_EnteringHoH;
+                        if (Config.ParanoidMode)
+                            EnqueueWait(Random.Shared.Next(Config.MinWaitTime * 1000, Config.MaxWaitTime * 1000));
+                        Enqueue(new EnterHeavenOnHigh());
+                    }
+                    else
+                    {
+                        HoardModeStatus = Strings.HoardFarm_Status_WaitingKyusei;
+                    }
+                }
             }
-
-            if (InRubySea && NotBusy() && KyuseiInteractable())
+            else
             {
-                if (FinishRun)
+                if (!InHoH && !InRubySea && NotBusy() && !KyuseiInteractable())
                 {
-                    HoardModeStatus = Strings.HoardFarm_Status_Finished;
-                    HoardMode = false;
-                    return;
+                    HoardModeStatus = Strings.HoardFarm_Status_MoveToHoH;
+                    Enqueue(new MoveToHoHTask());
+                    EnqueueWait(1000);
                 }
 
-                if (CheckRetainer())
+                if (InRubySea && NotBusy() && KyuseiInteractable())
                 {
-                    // Do retainers first
-                    return;
-                }
+                    if (FinishRun)
+                    {
+                        HoardModeStatus = Strings.HoardFarm_Status_Finished;
+                        HoardMode = false;
+                        return;
+                    }
 
-                GatherData();
-                timingStart = DateTime.Now;
-                HoardModeStatus = Strings.HoardFarm_Status_EnteringHoH;
-                if (Config.ParanoidMode)
-                    EnqueueWait(Random.Shared.Next(Config.MinWaitTime * 1000, Config.MaxWaitTime * 1000));
-                Enqueue(new EnterHeavenOnHigh());
+                    if (CheckRetainer())
+                    {
+                        // Do retainers first
+                        return;
+                    }
+
+                    GatherData();
+                    timingStart = DateTime.Now;
+                    HoardModeStatus = Strings.HoardFarm_Status_EnteringHoH;
+                    if (Config.ParanoidMode)
+                        EnqueueWait(Random.Shared.Next(Config.MinWaitTime * 1000, Config.MaxWaitTime * 1000));
+                    Enqueue(new EnterHeavenOnHigh());
+                }
             }
 
             if (InHoH && NotBusy())

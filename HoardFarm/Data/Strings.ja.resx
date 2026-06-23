@@ -38,6 +38,7 @@
     </data>
     <data name="ConfigWindow_UnlimitedInteract_Help" xml:space="preserve">
     <value>オブジェクト（秘宝など）へのインタラクト時の距離・視界・高低差の判定を無効化し、どの距離からでもインタラクトできるようにします。
+有効時は、ボットは自動でキュウセイへ移動・話しかけません。インタラクトができる隠れた場所でキュウセイに話しかけることでループして動作します。
 これはゲーム全体に作用するフックで、有効中はすべてのインタラクトに影響します。
 ゲーム更新後に不具合が出た場合は無効にしてください。</value>
     </data>
@@ -196,6 +197,9 @@
     </data>
     <data name="HoardFarm_Status_WaitingNavmesh" xml:space="preserve">
     <value>vnavmesh を待機中</value>
+    </data>
+    <data name="HoardFarm_Status_WaitingKyusei" xml:space="preserve">
+    <value>キュウセイに話しかけてください</value>
     </data>
     <data name="HoardFarm_Status_Error" xml:space="preserve">
     <value>エラー</value>

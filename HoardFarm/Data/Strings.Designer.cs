@@ -475,6 +475,15 @@ namespace HoardFarm.Data {
                 return ResourceManager.GetString("HoardFarm_Status_WaitingNavmesh", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Talk to Kyusei to continue.
+        /// </summary>
+        internal static string HoardFarm_Status_WaitingKyusei {
+            get {
+                return ResourceManager.GetString("HoardFarm_Status_WaitingKyusei", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to Do retainers:.

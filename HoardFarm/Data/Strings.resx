@@ -38,6 +38,7 @@
     </data>
     <data name="ConfigWindow_UnlimitedInteract_Help" xml:space="preserve">
         <value>Removes the distance/view/height checks when interacting with objects (e.g. hoards), allowing interaction from any distance.
+While enabled, the bot will NOT move to or talk to Kyusei automatically. It loops by you talking to Kyusei from a hidden spot where you can interact.
 This is a global game hook and affects all interactions while enabled.
 Disable it if you experience any issues after a game update.</value>
     </data>
@@ -196,6 +197,9 @@ It will take longer overall.</value>
     </data>
     <data name="HoardFarm_Status_WaitingNavmesh" xml:space="preserve">
         <value>Waiting for vnavmesh</value>
+    </data>
+    <data name="HoardFarm_Status_WaitingKyusei" xml:space="preserve">
+        <value>Talk to Kyusei to continue</value>
     </data>
     <data name="HoardFarm_Status_Error" xml:space="preserve">
         <value>Error</value>

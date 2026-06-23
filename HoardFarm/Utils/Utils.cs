@@ -112,6 +112,14 @@ public static class Utils
     }
 
 
+    // キュウセイに話しかけたときに開くディープダンジョン関連アドオンが
+    // 表示されているか（＝ユーザーが手動でキュウセイに話しかけた状態か）。
+    public static unsafe bool DeepDungeonMenuOpen()
+    {
+        return (TryGetAddonByName<AtkUnitBase>("DeepDungeonMenu", out var menu) && IsAddonReady(menu))
+               || (TryGetAddonByName<AtkUnitBase>("DeepDungeonSaveData", out var save) && IsAddonReady(save));
+    }
+
     public static unsafe bool KyuseiInteractable()
     {
         if (ObjectTable.TryGetFirst(e => e.BaseId == KyuseiDataId, out var npc))
